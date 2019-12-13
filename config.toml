@@ -114,6 +114,10 @@ canonifyurls = true
 
   description = "Personal blog"
 
+  # Facebook
+  fbAdminIds = ""
+  fbAppId = "445006706177461"
+
   # Customization
   # Define the behavior of the sidebar
   # 1: Display extra large sidebar on extra large screen, large sidebar on large screen,
