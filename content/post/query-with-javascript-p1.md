@@ -191,6 +191,35 @@ data.filter((e) => e.school == "BKU").map((f) => ({ id: f.id, name: f.name }));
 
 # 4. Tìm ra các phần tử phân biệt
 
+Yêu cầu: *Đếm số lượng trường đại học xuất hiện trong tập dữ liệu trên*
+
+Có thể thấy trong tập dữ liệu trên, có thể có nhiều sinh viên thuộc về một trường đại học. Nhiệm vụ của chúng ta là xác định một trường đại học có xuất hiện trong tập dữ liệu trên hay không.
+
+Nếu biết nhiều cấu trúc dữ liệu khác nhau, chúng ta có thể xác định dùng `Set` để chứa các trường học. Set là cấu trúc dữ liệu chứa các phần tử không trùng nhau. Như vậy, chúng ta sẽ dùng `map()` để lấy thông tin trường học. Sau đó bỏ vào `Set` để loại bỏ những trường học trùng nhau. Cuối cùng là đếm số lượng phần tử trong `Set`.
+
+```js
+// Lấy mảng chứ các trường
+let school = data.map((e) => e.school);
+
+// Đưa vào Set để loại bỏ phần tử trùng
+let schoolSet = new Set(school);
+
+// Cuối cùng là đếm số lượng phần tử
+// Vì Set là Object nên cần phải chuyển thành mảng dùng spread operator
+let result = [ ...schoolSet ].length;
+```
+
+Viết gọn lại như sau:
+
+```js
+[ ...new Set(data.map((e) => e.school))].length
+```
+
+{{< alert info >}}
+- Có thể dùng `Set` để loại bỏ các phần tử trùng.
+- Để lấy được `length` của một `Set` cần chuyển nó thành mảng. Vì `Set` là một object 
+{{< /alert >}}
+
 # 5. Kết luận
 
 Bài viết cũng khá dài rồi nên mình tạm dừng ở đây nhé. Trong phần tiếp theo mình sẽ hướng dẫn một số thủ thuật thú vị nữa để truy vấn và thống kê với JavaScript.
