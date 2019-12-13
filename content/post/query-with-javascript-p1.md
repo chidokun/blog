@@ -22,7 +22,7 @@ Một ngày đẹp trời nọ, sếp giao một cục dữ liệu và yêu cầ
 
 # 1. Tại sao lại là JavaScript?
 
-JavaScript cung cấp các hàm xử lý mảng rất hiệu quả và hữu ích. Hơn nữa, việc có thể sử dụng các hàm này ngay trên DevTool của trình duyệt cũng khiến cho thao tác của bạn nhanh hơn và dễ hơn. Trong bài này, mình sẽ hướng dẫn bạn thực hiện một số thao tác truy vấn, thống kê dùng các hàm xử lý mảng của JavaScript. Bài viết này không giới thiệu 
+JavaScript cung cấp các hàm xử lý mảng rất hiệu quả và hữu ích. Hơn nữa, việc có thể sử dụng các hàm này ngay trên DevTool của trình duyệt cũng khiến cho thao tác của bạn nhanh hơn và dễ hơn. Trong bài này, mình sẽ hướng dẫn bạn thực hiện một số thao tác truy vấn, thống kê dùng các hàm xử lý mảng của JavaScript.
 
 Giả sử mình có một tập dữ liệu sinh viên đơn giản, mỗi sinh viên có các thuộc tính:
 
