@@ -212,7 +212,7 @@ let result = [ ...schoolSet ].length;
 Viết gọn lại như sau:
 
 ```js
-[ ...new Set(data.map((e) => e.school))].length
+[ ...new Set(data.map((e) => e.school))].length;
 ```
 
 {{< alert info >}}
@@ -220,7 +220,34 @@ Viết gọn lại như sau:
 - Để lấy được `length` của một `Set` cần chuyển nó thành mảng. Vì `Set` là một object 
 {{< /alert >}}
 
-# 5. Kết luận
+# 5. Sắp xếp, đảo ngược danh sách
+
+Yêu cầu: *Sắp xếp danh sách sinh viên tăng dần theo điểm*
+
+Phương thức `sort()` sẽ giúp đơn giản hóa thao tác này.
+
+Tham số đầu vào là một *hàm so sánh*. Lưu ý về giá trị trả về của *hàm so sánh* nhé. Tham khảo tại [đây](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Array/S%E1%BA%AFp_x%E1%BA%BFp)
+
+```js
+[ ...data ].sort((a, b) => a.gpa - b.gpa);
+```
+
+Phương thức `sort()` sẽ làm biến đổi thứ tự của mảng nên để giữ lại mảng hiện tại, chúng ta cần tạo 1 mảng mới bằng *spread operator* `[ ...data ]`.
+
+Yêu cầu: *Đảo ngược danh sách sinh viên ban đầu*
+
+Chúng ta sử dụng `reverse()` để đảo ngược thứ tự 1 mảng. Tương tự như `sort()`, `reverse()` cũng làm thay đổi trên chính mảng đó, để giữ lại mảng cũ, chúng ta cũng tạo mảng mới bằng spread operator nhé.
+
+```js
+[ ...data ].reverse();
+```
+
+{{< alert info >}}
+- Dùng `sort()` để sắp xếp 1 mảng theo 1 điều kiện.
+- Dùng `reverse()` để đảo ngược mảng.
+{{< /alert >}}
+
+# 6. Kết luận
 
 Bài viết cũng khá dài rồi nên mình tạm dừng ở đây nhé. Trong phần tiếp theo mình sẽ hướng dẫn một số thủ thuật thú vị nữa để truy vấn và thống kê với JavaScript.
 
@@ -232,4 +259,6 @@ Nếu các bạn biết thêm về các thủ thuật khác thì hãy chia sẻ 
 - [Array.length](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Array/%08length)
 - [Array.prototype.reduce()](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 - [Array.prototype.map()](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+- [Array.prototype.sort()](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Array/S%E1%BA%AFp_x%E1%BA%BFp)
+- [Array.prototype.reverse()](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
 
