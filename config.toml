@@ -119,6 +119,9 @@ enableRobotsTXT = true
   fbAdminIds = ""
   fbAppId = "445006706177461"
 
+  # Google Site Verification
+  googleSiteVerfication = "MgXdDXZwDhcwwTzczA6YhQBynidGFAQUBd7PKu2ubfI"
+
   # Customization
   # Define the behavior of the sidebar
   # 1: Display extra large sidebar on extra large screen, large sidebar on large screen,

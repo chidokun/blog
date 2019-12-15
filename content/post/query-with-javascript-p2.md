@@ -21,7 +21,7 @@ draft: true
 
 <!--toc-->
 
-Lần này, chúng ta sử dụng 2 tập dữ liệu mã số sinh viên sau:
+Lần này, chúng ta sử dụng các tập dữ liệu mã số sinh viên sau:
 
 {{< codeblock js>}}
 let data1 = [
@@ -50,6 +50,8 @@ let data2 = [
 	"170413000029003"
 ];
 {{< /codeblock >}}
+
+Mục tiêu 
 
 # 1. Tìm giao của 2 danh sách
 
