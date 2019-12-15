@@ -12,6 +12,8 @@ tags:
 - programming
 - tips
 comments: true
+thumbnailImage: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/240px-JavaScript-logo.png
+thumbnailImagePosition: left
 ---
 
 Một ngày đẹp trời nọ, sếp giao một cục dữ liệu và yêu cầu bạn truy vấn, thống kê đơn giản một vài thứ hay thậm chí là chế biến, xào nấu lại dữ liệu. Có rất nhiều công cụ có thể giúp bạn làm việc này như Excel chẳng hạn. Không may, bạn là một developer chỉ ăn ngủ với code chứ chưa đụng vào Excel bao giờ. Tuy nhiên, nếu có một chút kỹ năng JavaScript, bạn cũng có thể thực hiện việc này một cách dễ dàng và nhanh chóng.
