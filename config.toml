@@ -100,7 +100,7 @@ enableRobotsTXT = true
   dateFormat = "2 January 2006"
 
   # Global keywords configuration. Following keywords will be add to every pages
-  keywords = ["development", "programming", "chidokun", "lap trinh"]
+  keywords = ["development", "programming", "chidokun", "lập trình"]
 
   # Syntax highlighter, possible choice between: "highlight.js" (recommanded) and "prism.js" (experimental)
   # You can comment it to disable syntax highlighting
@@ -113,7 +113,7 @@ enableRobotsTXT = true
   # If false it will flat categories.
   hierarchicalCategories = true
 
-  description = "Personal blog"
+  description = "Nguyễn Tuấn's Blog"
 
   # Facebook
   fbAdminIds = ""

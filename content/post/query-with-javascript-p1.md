@@ -5,6 +5,7 @@ date: 2019-12-13T22:11:33+07:00
 categories:
 - programming
 keywords:
+- js
 - javascript
 - query
 - truy vấn
