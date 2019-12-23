@@ -7,6 +7,8 @@ categories:
 keywords:
 - javascript
 - query
+- truy vấn
+- dữ liệu
 tags:
 - javascript
 - programming
