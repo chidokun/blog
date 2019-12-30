@@ -23,9 +23,17 @@ Xin giới thiệu đến các bạn một số điều hữu ích về số nh�
 
 <!--toc-->
 
-# 1. Số nhị phân
+# 1. Hệ nhị phân
 
 Trước hết, cùng điểm qua một số quy tắc của số nhị phân nhé!
+
+Một số trong có thể được biểu diễn trong hệ nhị phân bằng 2 chữ số 0 và 1 (thay vì 10 chữ số từ 0 đến 9 đối với hệ thập phân).
+
+Bit
+
+Chuỗi bit
+
+
 
 # 2. Những đặc trưng thú vị
 
@@ -69,3 +77,12 @@ cộng hoặc trừ 2 số nhị phân n bit sẽ không cần quá n+1 bit đ�
 13. The value 2n−1 contains n bits, each containing the value one.
 
 # 3. Các phép toán thú vị
+
+1. Kiểm tra 1 bit bên trong dãy bit dùng phép toán AND
+
+2. Kiểm tra 1 tập bit có phải là 0 dùng phép toán AND
+
+3. So sánh một tập bit bên trong chuỗi số nhị phân
+
+4. Tạo bộ đếm phép chia dư dùng phép toán AND
+
