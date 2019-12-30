@@ -25,26 +25,39 @@ Xin giới thiệu đến các bạn một số điều hữu ích về số nh�
 
 # 1. Hệ nhị phân
 
-Trước hết, cùng điểm qua một số quy tắc của số nhị phân nhé!
+Một số trong có thể được biểu diễn trong hệ nhị phân bằng 2 chữ số 0 và 1 (thay vì 10 chữ số từ 0 đến 9 đối với hệ thập phân). Hầu hết các máy tính hiện nay đều tính toán trên hệ nhị phân. Do đó, những giá trị và những đối tượng cũng được biểu diễn dưới dạng nhị phân. Các máy tính không thể biểu diễn một giá trị nhị phân tùy ý mà chỉ có thể biểu diễn giá trị với một kích thước nhất định.
 
-Một số trong có thể được biểu diễn trong hệ nhị phân bằng 2 chữ số 0 và 1 (thay vì 10 chữ số từ 0 đến 9 đối với hệ thập phân).
+Trong máy tính, các giá trị nhị phân được biểu diễn dưới dạng các *bit*. Một *bit* biểu diễn 2 giá trị khác nhau, có thể là *0* hoặc *1*, *đúng* hoặc *sai*, *có* hoặc *không*, ...
 
-Bit
+Các bit kết hợp với nhau sẽ tạo thành một *chuỗi bit*. Chúng ta có các chuỗi bit sau:
 
-Chuỗi bit
+- Nibble: 
+- Byte:
+- Word:
+- Double word:
+- Quad word:
+- Long word:
+- Tbyte: 
+
+Khi biểu diễn một chuỗi bit, ta sẽ đánh dấu các bit từ phải qua trái và bắt đầu từ 0. Bit bên phải cùng ứng với bit vị trí thấp nhất gọi là *bit LO* (low-order), bên trái cùng là *bit HO* (high-order). Cũng dùng LO để chỉ vị trí từ bên phải qua và HO cho vị trí từ bên trái qua.
+
+*Hình*
 
 
 
 # 2. Những đặc trưng thú vị
 
-1. Nếu bit 0 của số nhị phân (số nguyên) là 1 thì số đó là số lẻ, ngược lại, nếu là 0 thì là số chẵn.
+1. Nếu bit LO của số nhị phân (số nguyên) là 1 thì số đó là số lẻ. Ngược lại, nếu là 0 thì là số chẵn.
 
-2. If the LO n bits of a binary number all contain zero, then the number is
-evenly divisible by 2^n .
-Nếu n bit LO toàn chứa 0, thì số đó có thể chia hết cho 2^n
+Ví dụ: 
 
-3. If a binary value contains a one in bit position n, and zeros everywhere else, then that number is equal to 2 .
-Nếu số nhị phân có bit thứ n là 1, còn lại là 0 thì số đó = 2^n.
+2. Nếu một lượng n-bit LO đều là 0, thì số đó có thể chia hết cho 2^n.
+
+Ví dụ: 
+
+3. Nếu số nhị phân có bit thứ n là 1, tất cả các bit còn lại là 0 thì số đó bằng 2^n.
+
+Ví dụ:
 
 4. If a binary value contains all ones from bit position zero up to (but not including) bit position n, and all other bits are zero, then that value is equal to 2n−1.
 nếu số nhị phân chỉ chứa toàn số 1 từ vị trí 0 đến vị trí n -1, và các bit còn lại là 0, thì số đó = 2^n -1.
