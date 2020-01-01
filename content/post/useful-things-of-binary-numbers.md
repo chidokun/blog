@@ -1,5 +1,5 @@
 ---
-title: "Những điều thú vị của số nhị phân"
+title: "Những điều thú vị của số nhị phân trong máy tính"
 slug: useful-things-of-binary-numbers
 date: 2020-01-4T18:00:00+07:00
 categories:
@@ -31,13 +31,13 @@ Trong máy tính, các giá trị nhị phân được biểu diễn dưới d�
 
 Các bit kết hợp với nhau sẽ tạo thành một *chuỗi bit*. Chúng ta có các chuỗi bit sau:
 
-- Nibble: 
-- Byte:
-- Word:
-- Double word:
-- Quad word:
-- Long word:
-- Tbyte: 
+- Nibble: Chuỗi 4 bit. Hầu hết các máy tính không hỗ trợ truy cập 1 nibble trong bộ nhớ.
+- Byte/Octet: Chuỗi 8 bit. Là đơn vị nhỏ nhất mà các máy tính có thể truy cập vào bộ nhớ. Do vậy, hầu hết các ngôn ngữ lập trình hỗ trợ kiểu dữ liệu nhỏ nhất là 1 byte. Octet được sử dụng khi thuật ngữ byte có ý nghĩa mơ hồ, vì byte trong lịch sử từng được sử dụng làm đơn vị lưu trữ có nhiều kích thước khác nhau (không chỉ là 8 bit).
+- Word: Chuỗi 16 bit.
+- Double word: Chuỗi 32 bit.
+- Quad word: Chuỗi 64 bit.
+- Long word: Chuỗi 128 bit.
+- Tbyte: Chuỗi 80 bit. Sử dụng trong các hệ CPU Intel 80x86 để giữ các giá trị chấm động và các giá trị BCD nhất định (BCD - binary-coded decimal là một giá trị thập phân được mã hóa nhị phân).
 
 Khi biểu diễn một chuỗi bit, ta sẽ đánh dấu các bit từ phải qua trái và bắt đầu từ 0. Bit bên phải cùng ứng với bit vị trí thấp nhất gọi là *bit LO* (low-order), bên trái cùng là *bit HO* (high-order). Cũng dùng LO để chỉ vị trí từ bên phải qua và HO cho vị trí từ bên trái qua.
 
