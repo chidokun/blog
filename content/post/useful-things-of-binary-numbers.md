@@ -24,7 +24,7 @@ Xin giới thiệu đến các bạn một số điều hữu ích về số nh�
 
 # 1. Hệ nhị phân
 
-Một số trong có thể được biểu diễn trong hệ nhị phân bằng 2 chữ số 0 và 1 (thay vì 10 chữ số từ 0 đến 9 đối với hệ thập phân). Hầu hết các máy tính hiện nay đều tính toán trên hệ nhị phân. Do đó, những giá trị và những đối tượng cũng được biểu diễn dưới dạng nhị phân. Các máy tính không thể biểu diễn một giá trị nhị phân tùy ý mà chỉ có thể biểu diễn giá trị với một kích thước nhất định.
+Một số có thể được biểu diễn trong hệ nhị phân bằng 2 chữ số 0 và 1 (thay vì 10 chữ số từ 0 đến 9 đối với hệ thập phân). Hầu hết các máy tính hiện nay đều tính toán trên hệ nhị phân. Do đó, những giá trị và những đối tượng cũng được biểu diễn dưới dạng nhị phân. Các máy tính không thể biểu diễn một giá trị nhị phân tùy ý mà chỉ có thể biểu diễn giá trị với một kích thước nhất định.
 
 Trong máy tính, các giá trị nhị phân được biểu diễn dưới dạng các *bit*. Một *bit* biểu diễn 2 giá trị khác nhau, có thể là *0* hoặc *1*, *đúng* hoặc *sai*, *có* hoặc *không*, ...
 
