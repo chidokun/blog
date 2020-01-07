@@ -92,6 +92,14 @@ Vậy trong trường hợp bit mà bạn muốn kiểm tra không phải là bi
 result = ((a >> n) & 1) != 0;
 ```
 
+Hoặc một cách khác là:
+
+```
+// cần test bit thứ `n` của biến `a`
+result = (a & (1 << n)) != 0;
+```
+
+
 ## 3.2. Kiểm tra 1 chuỗi n-bit dùng phép toán AND
 
 Tương tự với trường hợp kiểm tra 1 bit, bạn có thể kiểm tra một chuỗi n-bit có phải toàn là `0` hay không bằng cách tạo ra 1 `mask` với toàn giá trị `1`, rồi dùng phép toán AND để kiểm tra.
@@ -117,7 +125,7 @@ Vậy có thể kiểm tra chuỗi n-bit như sau:
 
 ```
 // biến `a` là biến cần test chuỗi `n` bit cuối cùng
-result = (a & ((1 << 4) - 1)) != 0;
+result = (a & ((1 << n) - 1)) != 0;
 ```
 
 Thật đơn giản phải không nào!
