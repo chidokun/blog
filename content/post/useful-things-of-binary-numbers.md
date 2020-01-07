@@ -76,7 +76,7 @@ Các phép toán bitwise (AND, OR, NOT, SHIFT LEFT, SHIFT RIGHT,... ) có thể 
 
 ## 3.1. Kiểm tra 1 bit bên trong dãy bit dùng phép toán AND
 
-Tình huống hay gặp nhất là kiểm tra bit cuối cùng để xác định chẵn hay lẻ. Chúng ta cần tạo ra một **mask** để để thực hiện việc này. Bit cuối cùng của mask sẽ là 1 và các bit còn lại là 0. Phép toán AND sẽ biến các bit khác thành 0, ngoại trừ bit cuối cùng. Nếu bit cuối cùng là 0 sẽ dẫn đến kết quả là 0, còn nếu là 1, phép AND sẽ không thay đổi giá trị của nó. 
+Tình huống hay gặp nhất là kiểm tra bit cuối cùng để xác định chẵn hay lẻ. Chúng ta cần tạo ra một **mask** để thực hiện việc này. Bit cuối cùng của mask sẽ là 1 và các bit còn lại là 0. Phép toán AND sẽ biến các bit khác thành 0, ngoại trừ bit cuối cùng. Nếu bit cuối cùng là 0 sẽ dẫn đến kết quả là 0, còn nếu là 1, phép AND sẽ không thay đổi giá trị của nó. 
 
 Mã giả như sau:
 
