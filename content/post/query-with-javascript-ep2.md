@@ -155,6 +155,5 @@ Phía trên mình đã giới thiệu cách tìm giao và phần bù chỉ bằn
 
 Hi vọng bài viết sẽ giúp ích cho các bạn. Nếu biết thêm về các thủ thuật khác thì có thể chia sẻ với mình thông qua bình luận bên dưới nhé.
 
-## Tham khảo
 
 
