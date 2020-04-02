@@ -36,11 +36,9 @@ Sách đề cập đến 2 khả năng cốt lõi giúp thành công trong nền
 - Khả năng nhanh chóng nắm bắt những vấn đề khó.
 - Khả năng tạo ra sản phẩm ở mức độ cao cấp, xét về chất lượng và tốc độ.
 
-vì sao vậy, những sản phẩm là kết quả của hời hợt thì dễ bắt chước hơn là những sản , giống như sản phẩm
+Cả 2 khả năng này đều phụ thuộc vào *khả năng làm việc sâu*. Tác giả cũng cho rằng, những sản phẩm là kết quả của hời hợt thì dễ bắt chước hơn và không mang nhiều giá trị.
 
-Cả 2 khả năng này đều phụ thuộc vào *khả năng làm việc sâu*.
-
-Khả năng làm việc sâu yêu cầu sự tập trung cao độ và không được phân tâm. Với một môi trường mà Nó cũng trở thành một "kỹ năng mềm" cần thiết trong môi trường có quá nhiều sự xao lãng như hiện nay.
+Khả năng làm việc sâu yêu cầu sự tập trung cao độ và không được phân tâm. Nó cũng trở thành một "kỹ năng mềm" cần thiết trong môi trường có quá nhiều sự xao lãng như hiện nay.
 
 **(Thành quả công việc chất lượng cao) = (Thời gian bỏ ra) * (Cường độ tập trung)**
 
@@ -54,7 +52,7 @@ Tác giả đúc kết 4 quy tắc sau đây để bắt đầu rèn luyện k�
 
 Các yếu tố cần có để làm việc sâu là một môi trường phù hợp và một ý chí cao độ để bắt đầu duy trì sự tập trung. Ngoài ra, tác giả cũng đưa ra 4 triết lý khi lập kế hoạch làm việc sâu và đều hiệu quả nhưng không phổ quát, điều quan trọng là phải tìm ra được triết lý nào phù hợp nhất với mỗi cá nhân.
 
-- **Triết lý hà khắc**: Tập trung vào những công việc quan trong và mang nhiều giá trị bằng cách cố gắng loại bỏ hay giảm thiểu các công việc khác. Triết lý này rất phù hợp với những ai có thể làm việc hướng tới những mục tiêu rõ ràng mà không cần phải tuân theo các nghĩa vụ khác khi là thành viên của một tổ chức lớn hơn.
+- **Triết lý hà khắc**: Tập trung vào những công việc quan trọng và mang nhiều giá trị bằng cách cố gắng loại bỏ hay giảm thiểu các công việc khác. Triết lý này rất phù hợp với những ai có thể làm việc hướng tới những mục tiêu rõ ràng mà không cần phải tuân theo các nghĩa vụ khác khi là thành viên của một tổ chức lớn hơn.
 
 - **Triết lý phương thức đôi**: Triết lý này yêu cầu bạn phải chia thời gian theo một số quy định rõ ràng nhằm theo đuổi sự chuyên sâu và dành thời gian còn lại cho những việc khác. Trong thời gian chuyên sâu, những người theo triết lý phương thức đôi sẽ tuân theo sự hà khắc – cố gắng tập trung cao độ và liền mạch. Còn trong thời gian làm những việc hời hợt, sự tập trung không còn là ưu tiên hàng đầu.
 
@@ -115,4 +113,4 @@ Việc giảm thiểu những việc hời hợt sẽ giúp giải phóng thêm 
 
 # Kết luận
 
-Quyền sách này là những chỉ dẫn từ một người đã có nhiều kinh nghiệm làm việc chuyên sâu. Mình cũng là một người đang tìm kiếm những phương pháp giúp làm việc hiệu quả hơn. Như tác giả đã nói, làm việc chuyên sâu cũng là một kỹ năng và cần sự luyện tập. Đây cũng không phải là một bài tóm tắt nội dung sách mà chỉ là những phần kiến thức mà mình thấy thú vị và muốn giới thiệu đến các bạn. Vì vậy, nếu muốn tìm hiểu kỹ về các phương pháp mà tác giả nêu ra, các bạn hãy đọc toàn bộ sách nhé. 
+Quyển sách này là những chỉ dẫn từ một người đã có nhiều kinh nghiệm làm việc chuyên sâu. Mình cũng là một người đang tìm kiếm những phương pháp giúp làm việc hiệu quả hơn. Như tác giả đã nói, làm việc chuyên sâu cũng là một kỹ năng và cần sự luyện tập. Đây cũng không phải là một bài tóm tắt nội dung sách mà chỉ là những phần kiến thức mà mình thấy thú vị và muốn giới thiệu đến các bạn. Vì vậy, nếu muốn tìm hiểu kỹ về các phương pháp mà tác giả nêu ra, các bạn hãy đọc toàn bộ sách nhé. 
