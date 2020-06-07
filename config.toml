@@ -19,7 +19,7 @@ title = "Nguyễn Tuấn's Blog"
 theme = "tranquilpeak"
 # disqusShortname = "hugo-tranquilpeak-theme"
 googleAnalytics = "UA-64965138-2"
-paginate = 7
+paginate = 6
 canonifyurls = true
 enableRobotsTXT = true
 
