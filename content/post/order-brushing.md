@@ -35,7 +35,7 @@ Dữ liệu có 222.750 dòng x 4 cột:
 - **orderid**: Mã đơn hàng, duy nhất trên toàn bộ dữ liệu.
 - **shopid**: Mã shop, là một người bán hàng trên nền tảng Shopee.
 - **userid**: Mã user, là một người mua hàng của shop đó trên nền tảng Shopee.
-- **event_time**: Thời điểm diễn ra sự kiện này.
+- **event_time**: Thời điểm user đặt hàng của shop.
 
 Như vậy, một dòng dữ liệu thể hiện cho **một lần user đặt hàng của một shop** trên nền tảng Shopee.
 
@@ -72,7 +72,7 @@ d1.dtypes
 
 {{< image classes="fancybox center" thumbnail-width="100%" src="/images/post/order-brushing/2.png" title="Dữ liệu 10 dòng đầu">}}
 
-Để tính **concentrate rate** cho từng `shopid` trong mỗi interval 1 giờ, chúng ta query dữ liệu theo điều kiện `shopid`, `event_time` và `end_time` với từng đơn hàng.
+Để tính **concentrate rate** cho từng `shopid` trong mỗi interval 1 giờ, chúng ta query dữ liệu theo điều kiện `shopid`, `event_time` và `end_time` (nếu chọn `event_time` là thời điểm bắt đầu interval thì `end_time` là thời điểm kết thúc interval) với từng đơn hàng.
 
 Sau khi xác định shop có brushing, ta giữ lại `orderid` của shop đó và tất cả các `orderid` trong khoảng thời gian *brushing time*.
 
@@ -119,7 +119,7 @@ def find_max(userid_list, user_p_list):
     return max_value, set(max_user)
 ```
 
-Tương tự, cùng một `shopid` có thể có nhiều *brushing time* khác nhau. Mỗi *brushing time* sẽ phải tìm `userid` có *user proportion* cao nhất và chọn `userid` có *user proportion* cao nhất trong các `userid` đã tìm được từ các *brushing time*. Nếu có nhiều `userid` có cùng *user proportion* cao nhất thì chọn tất cả.
+Tương tự, cùng một `shopid` có thể có nhiều *brushing time* khác nhau. Mỗi *brushing time* sẽ phải tìm ra `userid` có *user proportion* cao nhất. Ta sẽ chọn `userid` có *user proportion* cao nhất trong các `userid` đã tìm được từ các *brushing time*. Nếu có nhiều `userid` có cùng *user proportion* cao nhất thì chọn tất cả.
 
 ```python
 d2 = d1[d1.orderid.isin(order_brushing)]
