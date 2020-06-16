@@ -16,7 +16,7 @@ thumbnailImage: /thumbnails/shopee-code-league.jpg
 thumbnailImagePosition: left
 ---
 
-**Shopee Code League** là một thử thách lập trình trực tuyến kéo dài 02 tháng bao gồm một loạt các cuộc thi, câu hỏi về thuật toán trực tuyến và hội thảo đào tạo trực tuyến dành cho tất cả sinh viên và các chuyên gia trên toàn khu vực (xem thêm tại [Shopee Code League 2020](https://careers.shopee.sg/codeleague/)). Challenge đầu tiên vừa diễn ra là **Order Brushing Problem** (Chủ đề Data Analytics). Mình cùng teammate vừa hoàn thành xong challenge này, dù chưa xây dựng được giải pháp tối ưu nhất (score: 0,89933/1,0) nhưng cũng giới thiệu đến các bạn giải pháp của nhóm trong bài toán này.
+**Shopee Code League** là một thử thách lập trình trực tuyến kéo dài 02 tháng bao gồm một loạt các cuộc thi, câu hỏi về thuật toán trực tuyến và hội thảo đào tạo trực tuyến dành cho tất cả sinh viên và các chuyên gia trên toàn khu vực (xem thêm tại [Shopee Code League 2020](https://careers.shopee.sg/codeleague/)). Challenge đầu tiên vừa diễn ra là **Order Brushing Problem** (Chủ đề Data Analytics). Mình cùng teammate vừa hoàn thành xong challenge này, dù chưa xây dựng được giải pháp tối ưu nhất (score: 0,98/1,0) nhưng cũng giới thiệu đến các bạn giải pháp của nhóm trong bài toán này.
 
 <!--more-->
 
@@ -56,7 +56,7 @@ $$Concentrate\ rate = \\frac{Number\ of\ Orders\ within\ 1\ hour\ of\ shopid}{Nu
 
 - Sau khi đã xác định được shop, cần xác định các user thực hiện order brushing cho shop đó. Với mỗi unique user đặt hàng shop đó, user nào có tỉ lệ **user proportion** cao nhất sẽ là user cần tìm. Trường hợp có nhiều user cùng tỉ lệ cao nhất thì tất cả các user đó cũng sẽ là user cần tìm. 
 
-$$User\ proportion = \\frac{No.\ Orders\ of\ User\ in\ brushing\ time}{No.\ Orders\ of\ Shop\ at\ entire\ brushing\ time}$$
+$$User\ proportion\ in\ brushing\ time = \\frac{No.\ Orders\ of\ User}{No.\ Orders\ of\ Shop}$$
 
 Để hiểu hơn các trường hợp cụ thể, các bạn có thể xem diễn giải tại [đây](https://www.kaggle.com/c/order-brushing-shopee-code-league/overview/examples).
 
@@ -72,13 +72,12 @@ d1.dtypes
 
 {{< image classes="fancybox center" thumbnail-width="100%" src="/images/post/order-brushing/2.png" title="Dữ liệu 10 dòng đầu">}}
 
-Để tính **concentrate rate** cho từng `shopid` trong mỗi interval 1 giờ, chúng ta query dữ liệu theo điều kiện `shopid`, `event_time` và `end_time` (nếu chọn `event_time` là thời điểm bắt đầu interval thì `end_time` là thời điểm kết thúc interval) với từng đơn hàng.
+Để tính **concentrate rate** cho từng `shopid` trong mỗi interval 1 giờ, chúng ta query dữ liệu theo điều kiện `shopid`, `event_time` và `end_time` và `previous_time` (nếu chọn `event_time` là thời điểm bắt đầu interval thì `end_time` là thời điểm kết thúc interval, ngược lại chọn `event_time` là thời điểm kết thúc thì `previous_time` sẽ là thời điểm bắt đầu) với từng đơn hàng.
 
-Sau khi xác định shop có brushing, ta giữ lại `orderid` của shop đó và tất cả các `orderid` trong khoảng thời gian *brushing time*.
+Sau khi xác định shop có brushing, ta giữ lại tất cả các `orderid` trong khoảng thời gian *brushing time*.
 
 ```python
 delta = pd.Timedelta(hours=1)
-order_brushing = [] # store brushing rows
 order_list = set() # store other rows that relevant to a brushing rows
 shop_query = dict() # to store query for shopid to quickly access
 
@@ -89,24 +88,26 @@ while i < row:
 
     r = d1.iloc[i]
     end_time = r.event_time + delta
+    previous_time = r.event_time - delta
     
     q = shop_query[r.shopid] if r.shopid in shop_query else d1[d1.shopid == r.shopid]
     shop_query[r.shopid] = q
 
-    q_with_time = q[q.event_time.between(r.event_time, end_time)]
+    q_n = q[q.event_time.between(r.event_time, end_time)]
+    q_p = q[q.event_time.between(previous_time, r.event_time)]
 
-    n_order = len(q_with_time)
-    n_unique_user = q_with_time.userid.nunique()
-    con_rate = n_order/n_unique_user
+    con_rate_p = len(q_p)/q_p.userid.nunique()
+    con_rate_n = len(q_n)/q_n.userid.nunique()
 
-    if con_rate >= 3:
-        order_brushing.append(r.orderid)
-        order_list.update(list(q_with_time.orderid.unique()))
+    if con_rate_p >= 3:
+        order_list.update(list(q_p.orderid.unique()))
+    if con_rate_n >= 3:
+        order_list.update(list(q_n.orderid.unique()))
+
     i+=1
-
 ```
 
-Khi một shop được xác định là brushing, cần phải xác định `userid` nào là brusher. Trong thời gian *brushing time* của một `orderid`, có thể có nhiều `userid`. Vì vậy chúng ta cần tìm user có *user proportion* cao nhất, nếu có nhiều user có cùng *user proportion* cao nhất thì phải trả về tất cả các user này.
+Khi một shop được xác định là brushing, cần phải xác định `userid` nào là brusher. Trong thời gian *brushing time* của một `shopid`, có thể có nhiều `userid` đặt hàng. Vì vậy chúng ta cần tìm user có *user proportion* cao nhất, nếu có nhiều user có cùng *user proportion* cao nhất thì phải trả về tất cả các user này.
 
 ```python
 def find_max(userid_list, user_p_list):
@@ -122,8 +123,7 @@ def find_max(userid_list, user_p_list):
 Tương tự, cùng một `shopid` có thể có nhiều *brushing time* khác nhau. Mỗi *brushing time* sẽ phải tìm ra `userid` có *user proportion* cao nhất. Ta sẽ chọn `userid` có *user proportion* cao nhất trong các `userid` đã tìm được từ các *brushing time*. Nếu có nhiều `userid` có cùng *user proportion* cao nhất thì chọn tất cả.
 
 ```python
-d2 = d1[d1.orderid.isin(order_brushing)]
-d3 = d1[d1.orderid.isin(order_list)]
+d2 = d1[d1.orderid.isin(order_list)]
 shop_list = dict() # to store shopid with userids having highest user proportion
 
 def add_to_list(shopid, max_tuples):
@@ -139,24 +139,18 @@ def add_to_list(shopid, max_tuples):
         shop_list[shopid] = (max_value, max_user.union(max_u))
 
 # Process brushing order set
-i = 0
-while i < d2_row:
+d2_uniq_shop = d2.shopid.unique()
+for shopid in d2_uniq_shop:
+    q = d2[d2.shopid == shopid]
 
-    r = d2.iloc[i]
-    end_time = r.event_time + delta
-
-    q = d1[d1.shopid == r.shopid]
-    q_with_time = q[q.event_time.between(r.event_time, end_time)]
-
-    user_list = q_with_time.userid.unique()
+    user_list = q.userid.unique()
     sum_order = len(q)
     user_proportion = []
     for userid in user_list:
-        user_proportion.append(len(q_with_time[q_with_time.userid == userid])/sum_order)
+        user_proportion.append(len(q[q.userid == userid])/sum_order)
 
     max_value, max_user = find_max(user_list,user_proportion)
-    add_to_list(r.shopid, (max_value, max_user))
-    i+=1
+    add_to_list(shopid, (max_value, max_user))
 
 ```
 
