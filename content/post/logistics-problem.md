@@ -160,7 +160,7 @@ Bóc thử những thằng trễ ra xem nó như thế nào :D
 Sau khi chạy xử lý xong thì phát hiện có **762.422** đơn hàng giao trễ :D
 
 
-Các bạn có thể xem toàn bộ notebook, dữ liệu tại GitHub: [order-brushing-shopee-code-league](https://github.com/chidokun/order-brushing-shopee-code-league)
+Các bạn có thể xem toàn bộ notebook, dữ liệu tại GitHub: [logistics-shopee-code-league](https://github.com/chidokun/logistics-shopee-code-league)
 
 
 # 4. Nhận định
