@@ -64,7 +64,13 @@ Tóm lại, sau khi kiểm tra lại trang Tiki, chúng ta có thể thấy:
 
 Trước tiên, sửa lại một số xử lý. Mình sẽ vẫn lấy hết `Product ID` để lưu lại rồi lấy thông tin chi tiết từng Product ID sau.
 
-Sửa lại tí nè, thêm header, gọi 
+Định nghĩa header:
+
+```python
+headers = {"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36"}
+```
+
+Sửa lại tí nè, thêm header, gọi API thay vì dùng BeautifulSoup.
 
 ```python
 def crawl_product_id():
