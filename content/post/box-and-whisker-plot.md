@@ -1,7 +1,7 @@
 ---
 title: "Biểu diễn dữ liệu với Box and Whisker Plot"
 slug: "box-and-whisker-plot"
-date: 2021-02-01T22:00:00+07:00
+date: 2021-02-03T22:00:00+07:00
 draft: false
 categories:
 - "analysis"
