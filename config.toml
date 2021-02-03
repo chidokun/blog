@@ -195,7 +195,8 @@ enableRobotsTXT = true
     src = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/contrib/auto-render.min.js"
     integrity = "sha384-IiI65aU9ZYub2MY9zhtKd1H2ps7xxf+eb2YFG9lX6uRqpXCvBTOidPRCXCrQ++Uc"
     crossorigin = "anonymous"
-    onload="renderMathInElement(document.body);"
+  [[params.customJS]]
+    src = "js/main.js"
 
   # Sharing options
   # Comment and uncomment to enable or disable sharing options
