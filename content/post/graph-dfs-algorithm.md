@@ -114,7 +114,6 @@ Thuật toán sẽ duyệt qua tất cả các đỉnh nếu đồ thị liên t
 
 ## References
 
-- [Graph (discrete mathematics)](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics))
 - [Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne](https://algs4.cs.princeton.edu/home/)
 
 
