@@ -107,10 +107,96 @@ private void dfs(Graph g, int v) {
 - Kết quả duyệt của phương pháp khử đệ quy có thể khác với phương pháp đệ quy do cấu trúc Stack hoạt động theo cơ chế LIFO. Nghĩa là thêm các đỉnh kề vào thì sẽ lấy ra theo thứ tự ngược lại. Tuy nhiên, nó vẫn tuân theo nguyên lý của DFS là duyệt sâu nhất có thể nên vẫn hợp lệ.
 {{< /alert >}}
 
-# 3. Đánh giá
+# 3. Áp dụng
+
+**Bài toán**: *Cho đồ thị `g` và đỉnh gốc `s`. Trả lời câu hỏi, có đường đi nào từ đỉnh gốc `s` tới một đỉnh `w` nào đó không. Nếu có, hãy tìm đường đi đó.*
+
+Chúng ta sẽ dùng thuật toán DFS để duyệt qua các đỉnh. Trong quá trình duyệt đó, lưu lại đỉnh gần nhất tới đỉnh `a` nào đó sử dụng `edgeTo[]`.
+Nếu các đỉnh được duyệt qua trong `marked[]`, chứng tỏ có đường đi đến đỉnh đó và có thể truy hồi lại đường đi dùng `edgeTo[]`.
+
+Code tham khảo:
+
+{{< tabbed-codeblock DepthFirstPaths>}}
+    <!-- tab java -->
+public class DepthFirstPaths {
+    private boolean[] marked;
+    private int[] edgeTo;
+    private int s;
+    public DepthFirstPaths(Graph g, int s) {
+        marked = new boolean[g.V()];
+        edgeTo = new int[g.V()];
+        this.s = s;
+        dfs(g, s);
+    }
+    private void dfs(Graph g, int v) {
+        marked[v] = true;
+        for (Integer i : g.adj(v))
+            if (!marked[i]) {
+                edgeTo[i] = v;
+                dfs(g, i);
+            }
+    }
+    public boolean hasPathTo(int w) { return marked[w]; }
+    public Iterable<Integer> pathTo(int w) {
+        if (!hasPathTo(w)) return null;
+        List<Integer> path = new LinkedList<>();
+        for (int i = w; i != s; i = edgeTo[i])
+            path.add(0, i);
+        path.add(0, s);
+        return path;
+    }
+}
+    <!-- endtab -->
+{{< /tabbed-codeblock >}}
+
+Cùng thử nghiệm với đồ thị sau đây:
+
+{{< image classes="fancybox center" thumbnail-width="60%" src="/images/post/graph-overview/1.svg" title="Đồ thị 1">}}
+
+Viết hàm `main` để test:
+
+{{< tabbed-codeblock DepthFirstPaths>}}
+    <!-- tab java -->
+public static void main(String[] args) {
+    Graph g = new Graph(6);
+    g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(0, 3);
+    g.addEdge(1, 4);
+    g.addEdge(2, 4);
+    g.addEdge(2, 5);
+
+    DepthFirstPaths path = new DepthFirstPaths(g, 0);
+    for (int i = 0; i < 6; i++) {
+        Iterable<Integer> rs = path.pathTo(i);
+        System.out.println(rs);
+    }
+}
+    <!-- endtab -->
+{{< /tabbed-codeblock >}}
+
+Kết quả là:
+
+```
+[0]
+[0, 1]
+[0, 1, 4, 2]
+[0, 3]
+[0, 1, 4]
+[0, 1, 4, 2, 5]
+```
+
+Và đường đi mà thuật toán cho kết quả là:
+
+{{< image classes="fancybox center" thumbnail-width="60%" src="/images/post/graph-dfs-algorithm/1.svg" title="Đường đi cho Đồ thị 1">}}
+
+Có gì đó sai sai đúng không :laughing:
+
+Thật ra DFS là thuật toán tìm kiếm mù và do cách duyệt vét cạn này, nó sẽ bị ảnh hưởng bởi thứ tự thêm cạnh vào đồ thị. Thử đặt dòng `g.addEdge(0, 2);` lên trên dòng `g.addEdge(0, 1);` rồi chạy lại. Bạn sẽ thấy sự khác biệt.
+
+# 4. Đánh giá
 
 Thuật toán sẽ duyệt qua tất cả các đỉnh nếu đồ thị liên thông. Tuy vậy, nó là thuật toán tìm kiếm mù, mang tính chất vét cạn và sẽ kém hiệu quả nếu tập đỉnh quá lớn.
-
 
 ## References
 

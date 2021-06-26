@@ -22,6 +22,7 @@ googleAnalytics = "UA-64965138-2"
 paginate = 6
 canonifyurls = true
 enableRobotsTXT = true
+enableEmoji = true
 
 [permalinks]
   post = "/:year/:month/:slug/"
