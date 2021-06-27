@@ -10,13 +10,13 @@ tags:
 keywords:
 - "graph"
 - "java"
-- "deep first search"
+- "depth first search"
 - "dfs"
 thumbnailImage: /thumbnails/graph.png
 thumbnailImagePosition: left
 ---
 
-Cấu trúc **Graph** (đồ thị) gồm tập các đỉnh kết nối với nhau qua các cạnh. **Depth First Search** là một trong những thuật toán có thể dùng để duyệt qua đồ thị.
+Cấu trúc **Graph** (đồ thị) gồm tập các đỉnh kết nối với nhau qua các cạnh. **Depth First Search** (DFS) là một trong những thuật toán có thể dùng để duyệt qua đồ thị.
 
 <!--more-->
 
@@ -139,10 +139,10 @@ public class DepthFirstPaths {
     public boolean hasPathTo(int w) { return marked[w]; }
     public Iterable<Integer> pathTo(int w) {
         if (!hasPathTo(w)) return null;
-        List<Integer> path = new LinkedList<>();
+        LinkedList<Integer> path = new LinkedList<>();
         for (int i = w; i != s; i = edgeTo[i])
-            path.add(0, i);
-        path.add(0, s);
+            path.addFirst(i);
+        path.addFirst(s);
         return path;
     }
 }
