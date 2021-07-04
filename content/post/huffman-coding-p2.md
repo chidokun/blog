@@ -211,7 +211,7 @@ Source: Hellooo!
 Encoded: 110111110100001110
 ```
 
-Toàn bộ source code của `HuffmanCoding`.
+Source code của `HuffmanCoding`.
 
 {{< tabbed-codeblock HuffmanCoding>}}
     <!-- tab java -->
