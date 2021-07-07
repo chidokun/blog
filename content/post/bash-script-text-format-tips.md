@@ -10,7 +10,7 @@ tags:
 keywords:
 - "bash script"
 - "shell script"
-thumbnailImage: /thumbnails/terminal.jpg
+thumbnailImage: /thumbnails/terminal.png
 thumbnailImagePosition: left
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Tạo Progress Bar trong Java Console"
 slug: "console-progress-bar"
-date: 2021-07-05T17:45:23+07:00
+date: 2021-07-07T17:54:21+07:00
 draft: false
 categories:
 - programming
@@ -12,7 +12,7 @@ keywords:
 - "java"
 - "progress bar"
 - "console"
-thumbnailImage: /thumbnails/terminal.jpg
+thumbnailImage: /thumbnails/terminal.png
 thumbnailImagePosition: left
 ---
 
@@ -180,10 +180,103 @@ Kết quả:
 
 {{< image classes="fancybox center" thumbnail-width="100%" src="/images/post/console-progress-bar/3.gif" title="Kết quả sau khi làm animation với Timer">}}
 
-# 3. Màu mè hoa lá hẹ
+Tuy nhiên, sau khi hoàn tất, chương trình không dừng lại, nó vẫn tiếp tục "quay quay" và chúng ta phải reset lại `Timer` để tắt animation. Để báo hiệu hoàn tất, chúng ta implement thêm method `stop()` bên trong class `ProgressBar` và gọi method này khi muốn dừng animation.
 
+```java
+public void stop() {
+    timer.cancel();
+}
+```
 
+## 2.3. Thành công và thất bại
 
+Sau khi kết thúc tác vụ, cho dù là thành công hay thất bại, chúng ta đều phải ngưng animation lại, không hiển thị spinner nữa mà thay vào đó là icon biểu thị thành công hoặc thất bại.
 
+Để làm điều này, chúng ta thêm vào 1 field `flag`, đồng thời cài đặt method `reportSuccess()` và `reportError()`.
 
+```java
+private int flag = 0;
 
+public void reportSuccess() {
+    this.flag = 1;
+    this.render();
+    this.stop();
+}
+
+public void reportError() {
+    this.flag = -1;
+    this.render();
+    this.stop();
+}
+```
+
+Phương thức `render()` cũng sửa lại một tí.
+
+```java
+private char getSymbol() {
+    switch (flag) {
+        case 1: return '\u2714';
+        case -1: return '\u2718';
+        default: return animation.charAt(animationIndex % animation.length());
+    }
+}
+public void render() {
+    int currentBlock = (int) (value / maxRange * width);
+    char symbol = getSymbol();
+    String filledBlock = Strings.repeat('#', currentBlock);
+    String remainBlock = Strings.repeat('-', width - currentBlock);
+    String text = String.format("%s [%s%s] %.0f/%.0f\r", symbol, filledBlock, remainBlock, value, maxRange);
+    System.out.print(text);
+}
+```
+
+Và giờ test lại với hàm `main()` với trường hợp thành công.
+
+```java
+public static void main(String[] args) throws InterruptedException {
+    final int MAX = 100;
+    Random rand = new Random();
+    ProgressBar p = new ProgressBar();
+    p.setMaxRange(MAX);
+    for (int i = 1; i <= MAX; i++) {
+        p.setValue(i);
+        Thread.sleep(rand.nextInt(50));
+    }
+    p.reportSuccess();
+}
+```
+
+Kết quả là:
+
+{{< image classes="fancybox center" thumbnail-width="100%" src="/images/post/console-progress-bar/4.gif" title="Thành công!">}}
+
+Cùng test trường hợp thất bại luôn nào.
+
+```java
+public static void main(String[] args) throws InterruptedException {
+    final int MAX = 100;
+    Random rand = new Random();
+    ProgressBar p = new ProgressBar();
+    p.setMaxRange(MAX);
+    try {
+        for (int i = 1; i <= MAX; i++) {
+            p.setValue(i);
+            Thread.sleep(50 + rand.nextInt(50));
+            if (i >= 45) {
+                throw new RuntimeException("Error while process");
+            }
+        }
+        p.reportSuccess();
+    } catch (Exception ex) {
+        p.reportError();
+    }
+}
+```
+
+Và kết quả:
+
+{{< image classes="fancybox center" thumbnail-width="100%" src="/images/post/console-progress-bar/5.gif" title="Thất bại!">}}
+
+Vậy là chúng ta đã hoàn thiện một Progress Bar trên màn hình console với ngôn ngữ Java. Các bạn có thể tham khảo [source code](https://github.com/chidokun/console-progress-bar) của toàn bộ bài viết.
+
+Khi nào rảnh mình sẽ hướng dẫn các bạn làm thêm một tí màu mè vào thanh Progress Bar nữa nhé :laughing:.
