@@ -8,10 +8,8 @@ categories:
 tags:
 - "data structures"
 keywords:
-- "graph"
+- "heap"
 - "java"
-- "breath first search"
-- "bfs"
 thumbnailImage: /thumbnails/heap.png
 thumbnailImagePosition: left
 ---
