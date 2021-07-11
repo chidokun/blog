@@ -7,7 +7,6 @@ categories:
 - programming
 tags:
 - "tips"
-- "data structures"
 keywords:
 - "java"
 - "progress bar"
