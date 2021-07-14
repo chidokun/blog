@@ -31,7 +31,7 @@ Do đó, thuật toán luôn in ra giá trị mảng đã được sắp xếp t
 
 Tất cả quá trình này được thực hiện bởi hệ điều hành và chúng ta không biết điều gì xảy ra bên dưới.
 
-<p style="text-align:center"><img style="display:inline-block" src="https://media.giphy.com/media/XHqLWPZtKNCN0Np2Gx/source.gif" width="480" height="270" /></p>
+<p style="text-align:center"><img style="display:inline-block" src="https://media.giphy.com/media/XHqLWPZtKNCN0Np2Gx/source.gif" width="480" /></p>
 
 # 2. Cài đặt ngay thôi
 
@@ -86,7 +86,7 @@ Ngoài ra nó cũng có một số hạn chế như:
 
 Nhìn chung, thuật toán này chủ yếu để vui là chính chứ không có quá nhiều ứng dụng trong thực tế.
 
-## References
+# References
 
 - [Sleep sort](https://iq.opengenus.org/sleep-sort/)
 
