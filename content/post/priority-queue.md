@@ -56,7 +56,7 @@ Phần này sẽ bàn về một số phương pháp cài đặt `PriorityQueue`
 
 Với cách này, chúng ta sẽ dùng mảng, hoặc danh sách liên kết, và cài đặt hành vi của các phương thức để thỏa mãn yêu cầu của PriorityQueue. Để cài đặt PriorityQueue theo cách này, chúng ta có thể suy nghĩ theo 2 hướng:
 
-- *Không sắp xếp trước (lazy approach)*: Với thao tác `insert()`, chỉ việc đơn giản là thêm mới một phần tử vào danh sách mà không cần làm gì thêm. Do đó, độ phức tạp của thao tác này là $O(1)$. Nhưng đối với thao tác `poll()`, chúng ta cần phải duyệt qua danh sách để tìm phần tử có độ ưu tiên cao nhất sau đó remove phần tử này khỏi danh sách nên độ phức tạp là $O(N)$.
+- *Không sắp xếp trước (lazy approach)*: Với thao tác `enqueue()`, chỉ việc đơn giản là thêm mới một phần tử vào danh sách mà không cần làm gì thêm. Do đó, độ phức tạp của thao tác này là $O(1)$. Nhưng đối với thao tác `dequeue()`, chúng ta cần phải duyệt qua danh sách để tìm phần tử có độ ưu tiên cao nhất sau đó remove phần tử này khỏi danh sách nên độ phức tạp là $O(N)$.
 
 - *Sắp xếp trước (eager approach)*: Ở hướng này, chúng ta sẽ sắp xếp danh sách mỗi khi thêm vào để cho thao tác lấy là ít tốn kém nhất. Mỗi khi thêm vào, chúng ta cần duyệt danh sách để thêm vào đúng vị trí đảm bảo danh sách luôn được sắp xếp. Do đó, độ phức tạp là $O(N)$. Khi lấy ra, chỉ đơn giản lấy ra phần tử đầu tiên của danh sách vì mặc nhiên nó có độ ưu tiên cao nhất. Chẳng hạn, nếu ta định nghĩa *lớn hơn là ưu tiên hơn*, thì danh sách sẽ được sắp xếp giảm dần. Mặc nhiên phần tử đầu tiên sẽ là phần tử lớn nhất. Do vậy nên độ phức tạp của thao tác này là $O(1)$.
 
