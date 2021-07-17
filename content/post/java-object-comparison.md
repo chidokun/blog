@@ -16,14 +16,14 @@ thumbnailImage: /thumbnails/compare-obj.png
 thumbnailImagePosition: left
 ---
 
-Bài toán so sánh 2 đối tượng khác nhau có lẽ hiếm gặp hơn bài toán so sánh 2 đối tượng cùng lớp. Đối với các hệ thống Java, việc giải quyết bài toán so sánh 2 đối tượng khác nhau có phần khó hơn. Trong bài này mình sẽ bàn về một giải pháp mà mình đã áp dụng để giải quyết bài toán so sánh 2 object khác nhau.
+Bài toán so sánh 2 đối tượng khác nhau có lẽ hiếm gặp hơn bài toán so sánh 2 đối tượng cùng lớp. Đối với các hệ thống Java, việc giải quyết bài toán so sánh 2 đối tượng khác nhau có phần khó hơn. Trong bài này, chúng ta cùng bàn về một số giải pháp để giải quyết bài toán so sánh 2 object khác nhau.
 
 <!--more-->
 <!--toc-->
 
 # 1. Vấn đề đặt ra
 
-Thông thường, bài toán so sánh 2 object khác kiểu có thể gặp trong trường hợp cần đọc dữ liệu của cùng một loại đối tượng ở nhiều datasource khác nhau. Cụ thể là bài toán đảm bảo sự nhất quán của dữ liệu ở 2 datasource khác nhau. Trong quá trình vận hành hệ thống có thể có những incident khiến việc ghi dữ liệu không thành công, dẫn đến sự không nhất quán dữ liệu. Lúc này, chúng ta cần scan dữ liệu, so sánh thông tin ở 2 datasource để đảm bảo sự nhất quán dữ liệu.
+Thông thường, bài toán so sánh 2 object khác kiểu có thể gặp trong trường hợp cần đọc dữ liệu của cùng một loại đối tượng ở nhiều datasource khác nhau. Cụ thể là bài toán đảm bảo sự nhất quán của dữ liệu ở 2 datasource khác nhau. Trong quá trình vận hành hệ thống có thể có những incident khiến việc ghi dữ liệu không thành công, dẫn đến sự không nhất quán dữ liệu. Lúc này, sẽ dẫn đến nhu cầu scan dữ liệu, so sánh và cập nhật thông tin ở 2 datasource để đảm bảo sự nhất quán dữ liệu.
 
 Nếu là bài toán so sánh 2 đối tượng cùng lớp, ta có thể "chỉ định" đối tượng này có thể so sánh được bằng cách implement class `Comparable<T>` và sau đó override method `compareTo(T obj)`. 
 
@@ -36,7 +36,7 @@ public int compareTo(T obj) {
 
 Trường hợp cần so sánh bằng nhau, đã có [Lombok](https://projectlombok.org/) lo giúp chúng ta. Chỉ đơn giản dùng annotation `@EqualsAndHashCode`, nó sẽ tự override lại method `equals()` và `hashCode()`.
 
-Nhưng với 2 đối tượng khác nhau, ta cần phải có giải pháp khác. Xét ví dụ về thông tin người dùng, chúng ta có 2 object từ 2 datasource khác nhau như sau:
+Nhưng với 2 đối tượng khác nhau, ta cần phải có giải pháp khác. Xét ví dụ về thông tin người dùng, chúng ta có 2 object từ 2 datasource khác nhau như sau (chọn vào tab để xem dữ liệu):
 
 {{< tabbed-codeblock >}}
     <!-- tab UserProfile1 -->
